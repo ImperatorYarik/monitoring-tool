@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Metrics</title>
+</head>
+<body>
+    <h1>System Metrics</h1>
+    <p>CPU Usage: {{ metrics.cpu_usage }}%</p>
+    <p>Memory Total: {{ metrics.memory_total }} bytes</p>
+    <p>Memory Used: {{ metrics.memory_used }} bytes</p>
+    <p>Memory Free: {{ metrics.memory_free }} bytes</p>
+    <p>Disk Total: {{ metrics.disk_total }} bytes</p>
+    <p>Disk Used: {{ metrics.disk_used }} bytes</p>
+    <p>Disk Free: {{ metrics.disk_free }} bytes</p>
+    <p>Network Sent: {{ metrics.net_sent }} bytes</p>
+    <p>Network Received: {{ metrics.net_recv }} bytes</p>
+</body>
+</html>
