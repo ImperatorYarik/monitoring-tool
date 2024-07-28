@@ -4,17 +4,61 @@
     <meta charset="UTF-8">
     <title>System Metrics</title>
 </head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: #555555;
+        margin-bottom: 20px;
+    }
+
+    .metrics p {
+        font-size: 1.2em;
+        color: #666666;
+        margin: 10px 0;
+    }
+
+    .metrics p span {
+        font-weight: bold;
+        color: #333333;
+    }
+
+</style>
 <body>
-    <h1>System Metrics</h1>
-    <h2>{{ metrics.hostname }}</h2>
-    <p>CPU Usage: {{ metrics.cpu_usage }}%</p>
-    <p>Memory Total: {{ metrics.memory_total }} MB</p>
-    <p>Memory Used: {{ metrics.memory_used }} MB</p>
-    <p>Memory Free: {{ metrics.memory_free }} MB</p>
-    <p>Disk Total: {{ metrics.disk_total }} GB</p>
-    <p>Disk Used: {{ metrics.disk_used }} GB</p>
-    <p>Disk Free: {{ metrics.disk_free }} GB</p>
-    <p>Network Sent: {{ metrics.net_sent }} GB</p>
-    <p>Network Received: {{ metrics.net_recv }} GB</p>
+    <div class="container">
+        <h1>System Metrics</h1>
+        <h2>{{ metrics.hostname }}</h2>
+        <div class="metrics">
+            <p>CPU Usage: {{ metrics.cpu_usage }}%</p>
+            <p>Memory Total: {{ metrics.memory_total }} MB</p>
+            <p>Memory Used: {{ metrics.memory_used }} MB</p>
+            <p>Memory Free: {{ metrics.memory_free }} MB</p>
+            <p>Disk Total: {{ metrics.disk_total }} GB</p>
+            <p>Disk Used: {{ metrics.disk_used }} GB</p>
+            <p>Disk Free: {{ metrics.disk_free }} GB</p>
+            <p>Network Sent: {{ metrics.net_sent }} GB</p>
+            <p>Network Received: {{ metrics.net_recv }} GB</p>
+        </div>
+    </div>
 </body>
 </html>
