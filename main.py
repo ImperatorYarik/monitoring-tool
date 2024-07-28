@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, render_template
 import psutil
+import socket
 
 app = Flask(__name__)
 
@@ -15,8 +16,9 @@ def get_system_metrics():
     mem_usage = psutil.virtual_memory()
     disk_usage = psutil.disk_usage('/')
     net_info = psutil.net_io_counters()
-
+    hostname = socket.gethostname()
     return {
+        'hostname': hostname,
         'cpu_usage': cpu_usage,
         'memory_total': bytes_to_megabytes(mem_usage.total),
         'memory_used': bytes_to_megabytes(mem_usage.used),
