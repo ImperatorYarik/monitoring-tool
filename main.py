@@ -11,7 +11,7 @@ def get_system_metrix():
 
     return {
         'cpu_usage': cpu_usage,
-        'memory_total': mem_usage.local,
+        'memory_total': mem_usage.total,
         'memory_used': mem_usage.used,
         'memory_free': mem_usage.available,
         'disk_total': disk_usage.total,
@@ -29,4 +29,8 @@ def metrics():
 @app.route('/')
 def index():
     metrix = get_system_metrix()
-    return render_template('index.html',metrics=metrics)
+    return render_template('./index.html',metrics=metrics)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
