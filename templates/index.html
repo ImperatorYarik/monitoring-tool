@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>System Metrics</title>
+    <title>SM {{ metrics.hostname }}</title>
 </head>
 <style>
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eaeaea;
     margin: 0;
     padding: 0;
     }
@@ -16,48 +16,88 @@
         max-width: 800px;
         margin: 50px auto;
         background-color: #ffffff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
         padding: 20px;
         text-align: center;
     }
 
     h1 {
-        color: #333333;
+        color: #2c3e50;
         margin-bottom: 20px;
+        font-size: 2.5em;
     }
 
     h2 {
-        color: #555555;
+        color: #34495e;
         margin-bottom: 20px;
+        font-size: 1.5em;
     }
 
     .metrics p {
         font-size: 1.2em;
-        color: #666666;
+        color: #7f8c8d;
         margin: 10px 0;
     }
 
     .metrics p span {
         font-weight: bold;
-        color: #333333;
+        color: #2c3e50;
+    }
+
+    .metrics {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .metric {
+        background-color: #f9f9f9;
+        border: 1px solid #ecf0f1;
+        border-radius: 8px;
+        padding: 10px 20px;
+        margin: 10px;
+        flex: 0 0 45%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .metric:hover {
+        background-color: #ecf0f1;
     }
 
 </style>
 <body>
     <div class="container">
         <h1>System Metrics</h1>
-        <h2>{{ metrics.hostname }}</h2>
+        <h2>Hostname: {{ metrics.hostname }}</h2>
         <div class="metrics">
-            <p>CPU Usage: {{ metrics.cpu_usage }}%</p>
-            <p>Memory Total: {{ metrics.memory_total }} MB</p>
-            <p>Memory Used: {{ metrics.memory_used }} MB</p>
-            <p>Memory Free: {{ metrics.memory_free }} MB</p>
-            <p>Disk Total: {{ metrics.disk_total }} GB</p>
-            <p>Disk Used: {{ metrics.disk_used }} GB</p>
-            <p>Disk Free: {{ metrics.disk_free }} GB</p>
-            <p>Network Sent: {{ metrics.net_sent }} GB</p>
-            <p>Network Received: {{ metrics.net_recv }} GB</p>
+            <div class="metric">
+                <p>CPU Usage: <span>{{ metrics.cpu_usage }}%</span></p>
+            </div>
+            <div class="metric">
+                <p>Memory Total: <span>{{ metrics.memory_total }} MB</span></p>
+            </div>
+            <div class="metric">
+                <p>Memory Used: <span>{{ metrics.memory_used }} MB</span></p>
+            </div>
+            <div class="metric">
+                <p>Memory Free: <span>{{ metrics.memory_free }} MB</span></p>
+            </div>
+            <div class="metric">
+                <p>Disk Total: <span>{{ metrics.disk_total }} GB</span></p>
+            </div>
+            <div class="metric">
+                <p>Disk Used: <span>{{ metrics.disk_used }} GB</span></p>
+            </div>
+            <div class="metric">
+                <p>Disk Free: <span>{{ metrics.disk_free }} GB</span></p>
+            </div>
+            <div class="metric">
+                <p>Network Sent: <span>{{ metrics.net_sent }} GB</span></p>
+            </div>
+            <div class="metric">
+                <p>Network Received: <span>{{ metrics.net_recv }} GB</span></p>
+            </div>
         </div>
     </div>
 </body>
